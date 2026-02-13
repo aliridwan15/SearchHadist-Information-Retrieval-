@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Sunnah Search Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        arab: ['"Amiri"', 'serif'],
+                    },
+                    colors: {
+                        emerald: { 50: '#ecfdf5', 600: '#059669', 700: '#047857', 800: '#065f46', 900: '#064e3b' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
+
+    <header class="bg-emerald-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-white/10 p-2 rounded-full backdrop-blur-sm">
+                    <img src="{{ url_for('static', filename='img/nabi-muhammad.png') }}" alt="Logo" class="h-10 w-10 object-contain rounded-full bg-white" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Sunnah&background=random';">
+                </div>
+                <span class="text-xl font-bold tracking-wide">Sunnah<span class="text-emerald-400">Search</span></span>
+            </div>
+            <nav>
+                <ul class="flex space-x-6 text-sm font-medium">
+                    <li><a href="{{ url_for('index') }}" class="hover:text-emerald-300 transition border-b-2 border-transparent hover:border-emerald-400 pb-1">Beranda</a></li>
+                    <li><a href="{{ url_for('about') }}" class="text-emerald-300 border-b-2 border-emerald-400 pb-1">Tentang</a></li>
+                </ul>
+            </nav>
+            <div class="text-center md:text-right text-xs md:text-sm bg-emerald-800/50 px-4 py-2 rounded-lg border border-emerald-700">
+                <strong class="block text-emerald-100">Ali Ridwan Nurhasan</strong>
+                <span class="text-emerald-300 font-mono">230411100154</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="bg-white max-w-3xl w-full rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div class="bg-emerald-600 px-8 py-6 text-white text-center">
+                <h1 class="font-arab text-4xl font-bold mb-2">Tentang Aplikasi</h1>
+                <p class="text-emerald-100 opacity-90">Sistem Temu Kembali Informasi Hadits</p>
+            </div>
+            
+            <div class="p-8 md:p-10 space-y-6">
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Aplikasi ini dikembangkan sebagai bagian dari tugas mata kuliah untuk membantu pengguna mencari dan menjelajahi hadits-hadits dari berbagai sumber terpercaya.
+                </p>
+
+                <div class="rounded-xl overflow-hidden shadow-md border border-gray-100 my-6">
+                    <img src="{{ url_for('static', filename='img/sunnah.png') }}" 
+                         alt="Ilustrasi Data Sunnah" 
+                         class="w-full h-auto object-cover hover:scale-105 transition duration-500"
+                         onerror="this.onerror=null;this.src='https://placehold.co/800x400/ecfdf5/047857?text=Ilustrasi+Hadits';">
+                </div>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Dataset ini berisi teks hadits/sunnah dalam <strong>Bahasa Arab</strong> beserta terjemahannya dalam <strong>Bahasa Indonesia</strong>. Data ini diolah menggunakan metode <em>BM25 (Best Matching 25)</em> untuk memberikan hasil pencarian yang relevan berdasarkan kata kunci maupun perawi.
+                </p>
+
+                <div class="mt-8 pt-6 border-t border-gray-100 text-center">
+                    <p class="text-sm text-gray-500 mb-2">Sumber Dataset:</p>
+                    <a href="https://www.kaggle.com/datasets/ronnieaban/sunnah" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 text-emerald-600 font-bold hover:text-emerald-800 transition bg-emerald-50 px-4 py-2 rounded-lg hover:bg-emerald-100">
+                        <i class="fas fa-database"></i> Kaggle Sunnah Dataset
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm text-gray-500">
+                &copy; 2025 <span class="font-bold text-emerald-700">Ali Ridwan Nurhasan</span> - 230411100154. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
